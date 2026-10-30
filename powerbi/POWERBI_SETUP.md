@@ -177,3 +177,4 @@ Depending on your Microsoft tenant permissions:
 - **CSV Refresh Requirement**: A Power BI report based on a static CSV export reflects observations up to the export timestamp. To incorporate new observations captured by the backend cron job, export an updated CSV and trigger a refresh in Power BI Desktop, or configure direct MySQL gateway connectivity.
 - **Licensing & Tenant Permissions**: Public embedding ("Publish to Web") requires tenant administrator enablement in Microsoft 365 Admin Portal. For college evaluation sessions where tenant policies restrict public embedding, the pre-built `.pbix` file or Power BI Desktop demonstration can be presented natively using `dataset/weather_records.csv`.
 - **Integrity**: The application clearly separates embedded Power BI analytics from internal Recharts components, fulfilling the academic requirement that simulated charts are never misrepresented as native Power BI frames.
+

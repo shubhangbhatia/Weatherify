@@ -82,7 +82,7 @@ export default function LiveWeather() {
         <button
           onClick={fetchLive}
           disabled={refreshing}
-          className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-cyan-500 to-electric-500 hover:from-cyan-400 hover:to-electric-400 text-navy-950 rounded-xl font-bold text-xs shadow-lg shadow-cyan-500/20 active:scale-95 disabled:opacity-50 self-start sm:self-auto"
+          className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-cyan-500 to-electric-500 hover:from-cyan-400 hover:to-electric-400 text-white font-bold text-xs rounded-xl shadow-lg shadow-cyan-500/25 active:scale-95 disabled:opacity-50 self-start sm:self-auto hover:text-white transition"
         >
           <RefreshCw className={`w-3.5 h-3.5 ${refreshing ? 'animate-spin' : ''}`} />
           <span>{refreshing ? 'Polling Sensors...' : 'Immediate Sync'}</span>
@@ -267,3 +267,4 @@ export default function LiveWeather() {
     </div>
   );
 }
+

@@ -68,3 +68,4 @@ erDiagram
 - **Primary Key**: `id`
 - **Foreign Key**: `fk_system_logs_user` pointing to `users(id)` with `ON DELETE SET NULL ON UPDATE CASCADE`. Ensures system audit history is preserved even if a user account is deleted by an administrator.
 - **Indexes**: `idx_logs_action`, `idx_logs_created_at`.
+

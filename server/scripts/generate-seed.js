@@ -125,3 +125,4 @@ const csvRows = records.map((r, idx) =>
 
 fs.writeFileSync(path.join(__dirname, '../../dataset/weather_records.csv'), csvHeader + csvRows, 'utf8');
 console.log('Successfully generated dataset/weather_records.csv');
+

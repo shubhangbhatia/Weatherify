@@ -33,3 +33,4 @@ services:
         value: admin@suratweather.edu
       - key: ADMIN_PASSWORD
         value: AdminPassword@2026
+

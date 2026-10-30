@@ -14,3 +14,4 @@ router.delete('/weather/:id', adminController.deleteWeatherRecord);
 router.get('/stats', adminController.getAdminStats);
 
 module.exports = router;
+

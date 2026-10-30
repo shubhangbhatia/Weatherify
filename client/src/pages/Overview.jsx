@@ -320,8 +320,8 @@ export default function Overview() {
               onClick={() => setActiveChart('temp')}
               className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition ${
                 activeChart === 'temp'
-                  ? 'bg-cyan-500 text-navy-950 shadow-sm'
-                  : 'text-slate-400 hover:text-white'
+                  ? 'bg-cyan-500/30 text-cyan-300 border border-cyan-500/50 shadow-sm shadow-cyan-500/10'
+                  : 'text-slate-400 hover:text-cyan-300 hover:bg-navy-800'
               }`}
             >
               Temperature (°C)
@@ -330,8 +330,8 @@ export default function Overview() {
               onClick={() => setActiveChart('humidity')}
               className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition ${
                 activeChart === 'humidity'
-                  ? 'bg-cyan-500 text-navy-950 shadow-sm'
-                  : 'text-slate-400 hover:text-white'
+                  ? 'bg-cyan-500/30 text-cyan-300 border border-cyan-500/50 shadow-sm shadow-cyan-500/10'
+                  : 'text-slate-400 hover:text-cyan-300 hover:bg-navy-800'
               }`}
             >
               Humidity (%)
@@ -340,8 +340,8 @@ export default function Overview() {
               onClick={() => setActiveChart('wind')}
               className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition ${
                 activeChart === 'wind'
-                  ? 'bg-cyan-500 text-navy-950 shadow-sm'
-                  : 'text-slate-400 hover:text-white'
+                  ? 'bg-cyan-500/30 text-cyan-300 border border-cyan-500/50 shadow-sm shadow-cyan-500/10'
+                  : 'text-slate-400 hover:text-cyan-300 hover:bg-navy-800'
               }`}
             >
               Wind (m/s)
@@ -350,8 +350,8 @@ export default function Overview() {
               onClick={() => setActiveChart('pressure')}
               className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition ${
                 activeChart === 'pressure'
-                  ? 'bg-cyan-500 text-navy-950 shadow-sm'
-                  : 'text-slate-400 hover:text-white'
+                  ? 'bg-cyan-500/30 text-cyan-300 border border-cyan-500/50 shadow-sm shadow-cyan-500/10'
+                  : 'text-slate-400 hover:text-cyan-300 hover:bg-navy-800'
               }`}
             >
               Pressure (hPa)
@@ -445,8 +445,8 @@ export default function Overview() {
             </thead>
             <tbody className="divide-y divide-navy-800 text-slate-300">
               {(chartData.slice(-10).reverse()).map((row, idx) => (
-                <tr key={idx} className="hover:bg-navy-850/60 transition-colors">
-                  <td className="py-3 px-4 font-mono text-cyan-400 font-medium">
+                <tr key={idx} className="hover:bg-navy-800/80 hover:text-white transition-colors">
+                  <td className="py-3 px-4 font-mono text-cyan-400 hover:text-cyan-300 font-medium">
                     {row.time} <span className="text-slate-500 font-normal">({row.fullDate})</span>
                   </td>
                   <td className="py-3 px-4">
@@ -468,3 +468,4 @@ export default function Overview() {
     </div>
   );
 }
+

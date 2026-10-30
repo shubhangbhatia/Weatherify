@@ -137,7 +137,7 @@ export default function Analytics() {
           <button
             onClick={handleExportCsv}
             disabled={exporting}
-            className="flex items-center gap-2 px-3.5 py-1.5 bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-400 border border-cyan-500/30 rounded-xl text-xs font-bold transition shadow-sm shadow-cyan-500/10 active:scale-95 disabled:opacity-50"
+            className="flex items-center gap-2 px-3.5 py-1.5 bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-400 hover:text-cyan-200 border border-cyan-500/30 rounded-xl text-xs font-bold transition shadow-sm shadow-cyan-500/10 active:scale-95 disabled:opacity-50"
           >
             <Download className={`w-3.5 h-3.5 ${exporting ? 'animate-bounce' : ''}`} />
             <span>{exporting ? 'Exporting...' : 'Export CSV Dataset'}</span>
@@ -326,7 +326,7 @@ export default function Analytics() {
             </thead>
             <tbody className="divide-y divide-navy-800 text-slate-300">
               {dailyTrends.map((d, idx) => (
-                <tr key={idx} className="hover:bg-navy-850/60 transition-colors">
+                <tr key={idx} className="hover:bg-navy-800/80 hover:text-white transition-colors">
                   <td className="py-3 px-4 font-bold text-white font-mono">{d.observation_date}</td>
                   <td className="py-3 px-4 font-semibold text-cyan-400">{d.avg_temperature}°C</td>
                   <td className="py-3 px-4 text-blue-400">{d.min_temperature}°C</td>
@@ -344,3 +344,4 @@ export default function Analytics() {
     </div>
   );
 }
+

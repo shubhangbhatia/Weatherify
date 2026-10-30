@@ -208,7 +208,7 @@ export default function AdminPanel() {
                 {users.map((u) => {
                   const isSelf = u.id === currentUser?.id;
                   return (
-                    <tr key={u.id} className="hover:bg-navy-850/50 transition">
+                    <tr key={u.id} className="hover:bg-navy-800/80 hover:text-white transition">
                       <td className="py-3 px-3 font-semibold text-white">{u.full_name}</td>
                       <td className="py-3 px-3 font-mono text-cyan-400">{u.email}</td>
                       <td className="py-3 px-3">
@@ -275,7 +275,7 @@ export default function AdminPanel() {
                 type="button"
                 onClick={confirmDeleteWeatherRecord}
                 disabled={!deleteRecordInputId}
-                className="w-full py-2.5 bg-rose-600/20 hover:bg-rose-600/30 border border-rose-500/30 text-rose-300 font-bold text-xs rounded-xl transition disabled:opacity-40"
+                className="w-full py-2.5 bg-rose-600/20 hover:bg-rose-600/40 border border-rose-500/30 text-rose-300 hover:text-white font-bold text-xs rounded-xl transition disabled:opacity-40"
               >
                 Delete Specific Observation
               </button>
@@ -313,7 +313,7 @@ export default function AdminPanel() {
             </thead>
             <tbody className="divide-y divide-navy-800 text-slate-300">
               {logs.map((l) => (
-                <tr key={l.id} className="hover:bg-navy-850/50 transition">
+                <tr key={l.id} className="hover:bg-navy-800/80 hover:text-white transition">
                   <td className="py-2.5 px-3 font-mono text-slate-500">#{l.id}</td>
                   <td className="py-2.5 px-3 font-mono text-cyan-400">
                     {new Date(l.created_at).toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })}
@@ -346,7 +346,7 @@ export default function AdminPanel() {
             <div className="flex justify-end gap-3 mt-6">
               <button
                 onClick={() => setDeleteUserModal(null)}
-                className="px-4 py-2 bg-navy-800 hover:bg-navy-750 text-slate-300 rounded-xl text-xs font-semibold"
+                className="px-4 py-2 bg-navy-800 hover:bg-navy-750 text-slate-300 hover:text-white rounded-xl text-xs font-semibold"
               >
                 Cancel
               </button>
@@ -363,3 +363,4 @@ export default function AdminPanel() {
     </div>
   );
 }
+

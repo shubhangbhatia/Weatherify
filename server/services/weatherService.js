@@ -219,3 +219,4 @@ module.exports = {
   getLatestSavedObservation,
   saveObservationToDb
 };
+

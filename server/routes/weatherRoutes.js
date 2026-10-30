@@ -15,3 +15,4 @@ router.get('/stats', weatherController.getStats);
 router.get('/export', weatherController.exportCsv);
 
 module.exports = router;
+

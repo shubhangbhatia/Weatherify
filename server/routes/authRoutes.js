@@ -10,3 +10,4 @@ router.post('/login', authLimiter, authController.login);
 router.get('/me', authenticateToken, authController.getMe);
 
 module.exports = router;
+

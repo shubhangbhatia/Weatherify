@@ -110,3 +110,4 @@ SELECT
     ROUND(AVG(wind_speed), 2) AS overall_avg_wind_speed,
     ROUND(AVG(pressure), 2) AS overall_avg_pressure
 FROM `weather_records`;
+

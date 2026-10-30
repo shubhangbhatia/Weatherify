@@ -31,3 +31,4 @@ runSeed().catch(err => {
   console.error('[Seed] Failed:', err);
   process.exit(1);
 });
+

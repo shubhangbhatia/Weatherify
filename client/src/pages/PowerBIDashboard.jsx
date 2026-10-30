@@ -4,14 +4,7 @@ import {
   BarChart3,
   ExternalLink,
   Download,
-  AlertCircle,
-  FileCode2,
   CheckCircle2,
-  Info,
-  Maximize2,
-  Sparkles,
-  HelpCircle,
-  Layers,
   Settings
 } from 'lucide-react';
 
@@ -76,14 +69,14 @@ export default function PowerBIDashboard() {
             </h2>
           </div>
           <p className="text-xs text-slate-400 mt-1">
-            Enterprise BI Visualizations, DAX Measures & Interactive Slice-and-Dice
+            Enterprise BI Visualizations, DAX Measures & Interactive Analytics
           </p>
         </div>
 
         <div className="flex flex-wrap items-center gap-3">
           <button
             onClick={() => setShowConfigModal(true)}
-            className="flex items-center gap-1.5 px-3 py-1.5 bg-navy-850 hover:bg-navy-800 border border-navy-700 rounded-xl text-xs font-semibold text-slate-300 transition"
+            className="flex items-center gap-1.5 px-3 py-1.5 bg-navy-850 hover:bg-navy-800 border border-navy-700 rounded-xl text-xs font-semibold text-slate-300 hover:text-white transition"
           >
             <Settings className="w-3.5 h-3.5 text-cyan-400" />
             <span>Configure Embed URL</span>
@@ -92,7 +85,7 @@ export default function PowerBIDashboard() {
           <button
             onClick={handleExportCsv}
             disabled={exporting}
-            className="flex items-center gap-2 px-3.5 py-1.5 bg-gradient-to-r from-cyan-500 to-electric-500 hover:from-cyan-400 hover:to-electric-400 text-navy-950 font-bold rounded-xl text-xs shadow-lg shadow-cyan-500/20 transition active:scale-95 disabled:opacity-50"
+            className="flex items-center gap-2 px-3.5 py-1.5 bg-gradient-to-r from-cyan-500 to-electric-500 hover:from-cyan-400 hover:to-electric-400 text-white font-bold rounded-xl text-xs shadow-lg shadow-cyan-500/20 transition active:scale-95 disabled:opacity-50 hover:text-white"
           >
             <Download className={`w-3.5 h-3.5 ${exporting ? 'animate-bounce' : ''}`} />
             <span>{exporting ? 'Downloading...' : 'Export Power BI CSV'}</span>
@@ -128,7 +121,7 @@ export default function PowerBIDashboard() {
           </div>
         </div>
       ) : (
-        /* Configuration & Setup State (Academic Presentation Mode) */
+        /* Configuration State */
         <div className="space-y-6">
           {/* Status Alert Banner */}
           <div className="bg-navy-900/90 border border-cyan-500/30 rounded-2xl p-6 shadow-xl relative overflow-hidden">
@@ -145,7 +138,6 @@ export default function PowerBIDashboard() {
                   </h3>
                   <p className="text-xs text-slate-300 mt-1 max-w-2xl leading-relaxed">
                     The Surat Weather Intelligence system provides native Microsoft Power BI integration via secure iframe embedding.
-                    Follow the verified workflow below to publish your report and embed it live into this dashboard.
                   </p>
                   <div className="mt-3 flex flex-wrap items-center gap-2 text-xs">
                     <span className="px-2.5 py-1 rounded-md bg-navy-800 border border-navy-700 text-slate-300 font-mono">
@@ -160,7 +152,7 @@ export default function PowerBIDashboard() {
 
               <button
                 onClick={() => setShowConfigModal(true)}
-                className="px-4 py-2.5 bg-cyan-500 hover:bg-cyan-400 text-navy-950 font-bold text-xs rounded-xl shadow-lg shadow-cyan-500/25 transition active:scale-95 shrink-0"
+                className="px-4 py-2.5 bg-gradient-to-r from-cyan-500 to-electric-500 hover:from-cyan-400 hover:to-electric-400 text-white font-bold text-xs rounded-xl shadow-lg shadow-cyan-500/25 transition active:scale-95 shrink-0 hover:text-white"
               >
                 Connect Embed URL
               </button>
@@ -202,56 +194,6 @@ export default function PowerBIDashboard() {
               ))}
             </div>
           </div>
-
-          {/* Step-by-Step Power BI Setup Card */}
-          <div className="bg-navy-900 border border-navy-800 rounded-2xl p-6 shadow-xl">
-            <h3 className="text-sm font-bold text-white uppercase tracking-wider mb-4 flex items-center gap-2">
-              <FileCode2 className="w-4 h-4 text-cyan-400" />
-              Power BI Integration & Publishing Guide
-            </h3>
-
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-4 text-xs">
-              <div className="p-4 bg-navy-850 rounded-xl border border-navy-800 space-y-2">
-                <span className="w-6 h-6 rounded-full bg-cyan-500/20 text-cyan-400 font-bold flex items-center justify-center">1</span>
-                <p className="font-bold text-white">Export Dataset</p>
-                <p className="text-slate-400 leading-relaxed">
-                  Click the "Export Power BI CSV" button above to obtain the latest historical observations directly from MySQL.
-                </p>
-              </div>
-
-              <div className="p-4 bg-navy-850 rounded-xl border border-navy-800 space-y-2">
-                <span className="w-6 h-6 rounded-full bg-cyan-500/20 text-cyan-400 font-bold flex items-center justify-center">2</span>
-                <p className="font-bold text-white">Import to Power BI</p>
-                <p className="text-slate-400 leading-relaxed">
-                  Open Power BI Desktop, select "Get Data" → "Text/CSV", select the exported dataset, and confirm date column types.
-                </p>
-              </div>
-
-              <div className="p-4 bg-navy-850 rounded-xl border border-navy-800 space-y-2">
-                <span className="w-6 h-6 rounded-full bg-cyan-500/20 text-cyan-400 font-bold flex items-center justify-center">3</span>
-                <p className="font-bold text-white">Build & Publish</p>
-                <p className="text-slate-400 leading-relaxed">
-                  Create the 9 required visuals using DAX measures (see powerbi/POWERBI_SETUP.md), then click "Publish" to Power BI Service.
-                </p>
-              </div>
-
-              <div className="p-4 bg-navy-850 rounded-xl border border-navy-800 space-y-2">
-                <span className="w-6 h-6 rounded-full bg-cyan-500/20 text-cyan-400 font-bold flex items-center justify-center">4</span>
-                <p className="font-bold text-white">Obtain Embed Link</p>
-                <p className="text-slate-400 leading-relaxed">
-                  In Power BI Service: File → Embed Report → Website or Portal (or Publish to Web), copy the iframe URL and paste it here.
-                </p>
-              </div>
-            </div>
-
-            <div className="mt-4 p-4 bg-navy-850/80 rounded-xl border border-navy-800 text-xs text-slate-400 flex items-start gap-3">
-              <Info className="w-5 h-5 text-cyan-400 shrink-0 mt-0.5" />
-              <div className="leading-relaxed">
-                <span className="font-semibold text-slate-200">Academic & Licensing Note: </span>
-                Power BI Service public embedding ("Publish to Web") requires appropriate Microsoft tenant permissions. For internal/academic evaluations, reports can also be demonstrated natively via Power BI Desktop using the pre-packaged dataset in <code className="text-cyan-400 font-mono">dataset/weather_records.csv</code>.
-              </div>
-            </div>
-          </div>
         </div>
       )}
 
@@ -282,13 +224,13 @@ export default function PowerBIDashboard() {
                 <button
                   type="button"
                   onClick={() => setShowConfigModal(false)}
-                  className="px-4 py-2 bg-navy-800 hover:bg-navy-750 text-slate-300 rounded-xl text-xs font-medium"
+                  className="px-4 py-2 bg-navy-800 hover:bg-navy-750 text-slate-300 hover:text-white rounded-xl text-xs font-medium"
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
-                  className="px-4 py-2 bg-cyan-500 hover:bg-cyan-400 text-navy-950 font-bold rounded-xl text-xs"
+                  className="px-4 py-2 bg-gradient-to-r from-cyan-500 to-electric-500 hover:from-cyan-400 hover:to-electric-400 text-white font-bold rounded-xl text-xs hover:text-white"
                 >
                   Save & Load Embed
                 </button>

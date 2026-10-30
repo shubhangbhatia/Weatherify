@@ -92,7 +92,7 @@ export default function WeatherRecords() {
         <button
           onClick={handleExportCsv}
           disabled={exporting}
-          className="flex items-center gap-2 px-3.5 py-1.5 bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-400 border border-cyan-500/30 rounded-xl text-xs font-bold transition shadow-sm shadow-cyan-500/10 active:scale-95 disabled:opacity-50 self-start sm:self-auto"
+          className="flex items-center gap-2 px-3.5 py-1.5 bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-400 hover:text-cyan-200 border border-cyan-500/30 rounded-xl text-xs font-bold transition shadow-sm shadow-cyan-500/10 active:scale-95 disabled:opacity-50 self-start sm:self-auto"
         >
           <Download className={`w-3.5 h-3.5 ${exporting ? 'animate-bounce' : ''}`} />
           <span>{exporting ? 'Generating CSV...' : 'Export Filtered Dataset'}</span>
@@ -113,7 +113,7 @@ export default function WeatherRecords() {
           />
           <button
             type="submit"
-            className="absolute right-1.5 top-1/2 -translate-y-1/2 px-2.5 py-1 bg-cyan-500/20 hover:bg-cyan-500/30 text-cyan-400 rounded-lg text-xs font-semibold"
+            className="absolute right-1.5 top-1/2 -translate-y-1/2 px-2.5 py-1 bg-cyan-500/20 hover:bg-cyan-500/30 text-cyan-400 hover:text-cyan-200 rounded-lg text-xs font-semibold"
           >
             Filter
           </button>
@@ -210,7 +210,7 @@ export default function WeatherRecords() {
                   });
 
                   return (
-                    <tr key={r.id} className="hover:bg-navy-850/50 transition-colors">
+                    <tr key={r.id} className="hover:bg-navy-800/80 hover:text-white transition-colors">
                       <td className="py-3 px-4 font-mono text-slate-500 font-medium">#{r.id}</td>
                       <td className="py-3 px-4 font-mono text-cyan-400 font-semibold">{istTime}</td>
                       <td className="py-3 px-4">
@@ -246,14 +246,14 @@ export default function WeatherRecords() {
             <button
               onClick={() => fetchRecords(pagination.page - 1)}
               disabled={pagination.page <= 1 || loading}
-              className="p-1.5 rounded-lg bg-navy-800 hover:bg-navy-700 text-slate-300 disabled:opacity-30 disabled:cursor-not-allowed"
+              className="p-1.5 rounded-lg bg-navy-800 hover:bg-navy-700 text-slate-300 hover:text-white disabled:opacity-30 disabled:cursor-not-allowed"
             >
               <ChevronLeft className="w-4 h-4" />
             </button>
             <button
               onClick={() => fetchRecords(pagination.page + 1)}
               disabled={pagination.page >= pagination.totalPages || loading}
-              className="p-1.5 rounded-lg bg-navy-800 hover:bg-navy-700 text-slate-300 disabled:opacity-30 disabled:cursor-not-allowed"
+              className="p-1.5 rounded-lg bg-navy-800 hover:bg-navy-700 text-slate-300 hover:text-white disabled:opacity-30 disabled:cursor-not-allowed"
             >
               <ChevronRight className="w-4 h-4" />
             </button>
@@ -263,3 +263,4 @@ export default function WeatherRecords() {
     </div>
   );
 }
+
