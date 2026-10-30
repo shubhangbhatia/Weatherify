@@ -1,0 +1,12 @@
+const express = require('express');
+const router = express.Router();
+const authController = require('../controllers/authController');
+const { authenticateToken } = require('../middleware/auth');
+const { authLimiter } = require('../middleware/rateLimiter');
+
+// Rate-limited auth routes
+router.post('/register', authLimiter, authController.register);
+router.post('/login', authLimiter, authController.login);
+router.get('/me', authenticateToken, authController.getMe);
+
+module.exports = router;

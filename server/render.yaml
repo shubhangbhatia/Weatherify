@@ -1,0 +1,35 @@
+services:
+  - type: web
+    name: surat-weather-intelligence-api
+    env: node
+    plan: free
+    rootDir: server
+    buildCommand: npm install
+    startCommand: node server.js
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - key: CORS_ORIGIN
+        value: '*'
+      - key: DB_HOST
+        sync: false
+      - key: DB_PORT
+        value: '3306'
+      - key: DB_USER
+        sync: false
+      - key: DB_PASSWORD
+        sync: false
+      - key: DB_NAME
+        value: surat_weather_db
+      - key: DB_SSL
+        value: 'true'
+      - key: JWT_SECRET
+        generateValue: true
+      - key: OPENWEATHER_API_KEY
+        sync: false
+      - key: ADMIN_EMAIL
+        value: admin@suratweather.edu
+      - key: ADMIN_PASSWORD
+        value: AdminPassword@2026
